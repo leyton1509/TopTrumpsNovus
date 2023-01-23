@@ -14,6 +14,7 @@
 
         public Card(int _deckID, int _statOne, int _statTwo, int _statThree, int _statFour, int _statFive, int _statSix)
         {
+            deckID = _deckID;
             statOne = _statOne;
             statTwo = _statTwo;
             statThree = _statThree;
