@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TopTrumpsNovus.Data;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<CardDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CardDBContext") ?? throw new InvalidOperationException("Connection string 'CardDBContext' not found.")));
 var connectionString = builder.Configuration.GetConnectionString("TopTrumpsNovusContextConnection") ?? throw new InvalidOperationException("Connection string 'TopTrumpsNovusContextConnection' not found.");
 
 builder.Services.AddDbContext<TopTrumpsNovusContext>(options =>
