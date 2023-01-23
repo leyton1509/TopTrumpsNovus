@@ -5,7 +5,7 @@
     {
         public int deckID { get; set; }
 
-        String cardName;
+        public String cardName { get; set; }
 
         int statOne { get; set; }
         int statTwo { get; set; }
