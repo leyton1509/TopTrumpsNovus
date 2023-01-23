@@ -1,33 +1,44 @@
-﻿namespace TopTrumpsNovus.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TopTrumpsNovus.Models
 {
 
     public class Card
     {
-        public int deckID { get; set; }
+        public int Id { get; set; }
 
-        public String cardName { get; set; }
+        [Required]
+        [Display(Name = "DeckID")]
+        public int DeckID { get; set; }
 
-        public String imageFilePath { get; set; }
+        [Required]
+        [MaxLength(150)]
+        [Display(Name = "Card's Name")]
+        public String CardName { get; set; }
 
-        int statOne { get; set; }
-        int statTwo { get; set; }
-        int statThree { get; set; }
-        int statFour { get; set; }
-        int statFive { get; set; }
-        int statSix { get; set; }
+        [Required]
+        [MaxLength(150)]
+        [Display(Name = "Image File Path")]
+        public String ImageFilePath { get; set; }
 
-        public Card(int _deckID, string _cardName, int _statOne, int _statTwo, int _statThree, int _statFour, int _statFive, int _statSix, String _imageFilePath)
-        {
-            deckID = _deckID;
-            cardName = _cardName;
-            statOne = _statOne;
-            statTwo = _statTwo;
-            statThree = _statThree;
-            statFour = _statFour;
-            statFive = _statFive;
-            statSix = _statSix;
-            imageFilePath = _imageFilePath;
-        }
+        [Required]
+        [Display(Name = "Stat One")]
+        public int StatOne { get; set; }
+        [Required]
+        [Display(Name = "Stat Two")]
+        public int StatTwo { get; set; }
+        [Required]
+        [Display(Name = "StatThree ")]
+        public int StatThree { get; set; }
+        [Required]
+        [Display(Name = "Stat Four")]
+        public int StatFour { get; set; }
+        [Required]
+        [Display(Name = "Stat Five")]
+        public int StatFive { get; set; }
+        [Required]
+        [Display(Name = "Stat Six")]
+        public int StatSix { get; set; }
 
     }
 }
