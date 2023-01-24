@@ -24,17 +24,17 @@ namespace TopTrumpsNovus.Models
 
         public int StatSix { get; set; }
 
-        public CardConst(int _DeckID, String _cardName, String _ImageFilePath, int _StatOne, int _StatTwo, int _StatThree, int _StatFour, int _StatFive, int _StatSix)
+        public CardConst(int DeckID, String CardName, String ImageFilePath, int StatOne, int StatTwo, int StatThree, int StatFour, int StatFive, int StatSix)
         {
-            DeckID = _DeckID;
-            CardName = _cardName;
-            ImageFilePath = _ImageFilePath;
-            StatOne = _StatOne;
-            StatTwo = _StatTwo; 
-            StatThree = _StatThree;
-            StatFour = _StatFour;
-            StatFive = _StatFive;
-            StatSix = _StatSix;
+            this.DeckID = DeckID;
+            this.CardName = CardName;
+            this.ImageFilePath = ImageFilePath;
+            this.StatOne = StatOne;
+            this.StatTwo = StatTwo;
+            this.StatThree = StatThree;
+            this.StatFour = StatFour;
+            this.StatFive = StatFive;
+            this.StatSix = StatSix;
         }
 
     }
