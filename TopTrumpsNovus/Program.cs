@@ -50,11 +50,19 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-using (var reader = new StreamReader("filePersons.csv"))
+using (var reader = new StreamReader("DecksP.csv"))
 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 {
+    
     var records = csv.GetRecords<CardConst>();
+
+    foreach (var item in records)
+    {
+        Console.WriteLine(item.CardName);
+    }
 }
+
+/*
 
 string connetionString;
 SqlConnection cnn;
@@ -78,5 +86,5 @@ command.Dispose();
 
 // Response.Write("Connection MAde");
 cnn.Close();
-
+*/
 app.Run();
