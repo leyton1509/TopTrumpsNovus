@@ -12,6 +12,8 @@ using System.Globalization;
 using System;
 using CsvHelper;
 using TopTrumpsNovus.Models;
+using System.Runtime.Intrinsics.X86;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CardDBContext>(options =>
@@ -49,21 +51,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-using (var reader = new StreamReader("DecksP.csv"))
-using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-{
-    
-    var records = csv.GetRecords<CardConst>();
-
-    foreach (var item in records)
-    {
-        Console.WriteLine(item.CardName);
-    }
-}
-
 /*
-
 string connetionString;
 SqlConnection cnn;
 
@@ -75,16 +63,38 @@ cnn.Open();
 SqlDataAdapter adapter = new SqlDataAdapter();
 
 
-var insertQuery = "INSERT INTO Card (DeckID, CardName, ImageFilePath, StatOne, StatTwo, StatThree, StatFour, StatFive, StatSix) " +
-               "VALUES (4, 'Test', 'Test.png', 1, 2, 3, 4, 5, 6)";
+string[] lines = System.IO.File.ReadAllLines("DecksP.csv");
+foreach (string line in lines)
+{
+    string[] columns = line.Split(',');
 
-SqlCommand command = new SqlCommand(insertQuery, cnn);
-adapter.InsertCommand = new SqlCommand(insertQuery, cnn);
-adapter.InsertCommand.ExecuteNonQuery();
+    Console.WriteLine(columns[0] + " " + columns[1] + " " + columns[2] + " " + columns[3] + " " + columns[4] + " " + columns[5] + " " + columns[6] + " " + columns[7]);
 
-command.Dispose();
+    var insertQuery = "INSERT INTO Card (DeckID, CardName, ImageFilePath, StatOne, StatTwo, StatThree, StatFour, StatFive, StatSix) VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)";
+
+    SqlCommand command = new SqlCommand(insertQuery, cnn);
+    adapter.InsertCommand = new SqlCommand(insertQuery, cnn);
+    command.Parameters.AddWithValue("@p0", columns[0]);
+    command.Parameters.AddWithValue("@p1", columns[1]);
+    command.Parameters.AddWithValue("@p2", columns[2]);
+    command.Parameters.AddWithValue("@p3", columns[3]);
+    command.Parameters.AddWithValue("@p4", columns[4]);
+    command.Parameters.AddWithValue("@p5", columns[5]);
+    command.Parameters.AddWithValue("@p6", columns[6]);
+    command.Parameters.AddWithValue("@p7", columns[7]);
+    command.Parameters.AddWithValue("@p8", columns[8]);
+   command.ExecuteNonQuery();
+
+    command.Dispose();
+
+    foreach (string column in columns)
+    {
+        
+    }
+}
 
 // Response.Write("Connection MAde");
 cnn.Close();
 */
+
 app.Run();
