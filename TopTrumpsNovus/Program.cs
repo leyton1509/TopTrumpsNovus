@@ -7,6 +7,11 @@ using Azure;
 using System.Diagnostics.Metrics;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Formats.Asn1;
+using System.Globalization;
+using System;
+using CsvHelper;
+using TopTrumpsNovus.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CardDBContext>(options =>
@@ -44,6 +49,12 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+using (var reader = new StreamReader("filePersons.csv"))
+using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+{
+    var records = csv.GetRecords<CardConst>();
+}
 
 string connetionString;
 SqlConnection cnn;
