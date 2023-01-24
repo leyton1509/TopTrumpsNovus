@@ -2,6 +2,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TopTrumpsNovus.Data;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.SqlClient;
+using Azure;
+using System.Diagnostics.Metrics;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CardDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CardDBContext") ?? throw new InvalidOperationException("Connection string 'CardDBContext' not found.")));
@@ -37,5 +43,29 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+string connetionString;
+SqlConnection cnn;
+
+connetionString = "Server=(localdb)\\mssqllocaldb;Database=TopTrumpsNovus.Data;Trusted_Connection=True;MultipleActiveResultSets=true";
+
+cnn = new SqlConnection(connetionString);
+cnn.Open();
+
+SqlDataAdapter adapter = new SqlDataAdapter();
+
+
+var insertQuery = "INSERT INTO Card (DeckID, CardName, ImageFilePath, StatOne, StatTwo, StatThree, StatFour, StatFive, StatSix) " +
+               "VALUES (4, 'Test', 'Test.png', 1, 2, 3, 4, 5, 6)";
+
+SqlCommand command = new SqlCommand(insertQuery, cnn);
+adapter.InsertCommand = new SqlCommand(insertQuery, cnn);
+adapter.InsertCommand.ExecuteNonQuery();
+
+command.Dispose();
+
+// Response.Write("Connection MAde");
+cnn.Close();
 
 app.Run();
