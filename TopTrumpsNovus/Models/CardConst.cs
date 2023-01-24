@@ -1,41 +1,31 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CsvHelper.Configuration.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace TopTrumpsNovus.Models
 {
 
     public class CardConst
     {
-       
+        [Name("DeckID")]
         public int DeckID { get; set; }
 
+        [Name("CardName")]
         public String? CardName { get; set; }
-
+        [Name("CardName")]
         public String? ImageFilePath { get; set; }
-
+        [Name("StatOne")]
         public int StatOne { get; set; }
-
+        [Name("StatTwo")]
         public int StatTwo { get; set; }
-
+        [Name("StatThree")]
         public int StatThree { get; set; }
-
+        [Name("StatFour")]
         public int StatFour { get; set; }
-
+        [Name("StatFive")]
         public int StatFive { get; set; }
-
+        [Name("StatSix")]
         public int StatSix { get; set; }
 
-        public CardConst(int DeckID, String CardName, String ImageFilePath, int StatOne, int StatTwo, int StatThree, int StatFour, int StatFive, int StatSix)
-        {
-            this.DeckID = DeckID;
-            this.CardName = CardName;
-            this.ImageFilePath = ImageFilePath;
-            this.StatOne = StatOne;
-            this.StatTwo = StatTwo;
-            this.StatThree = StatThree;
-            this.StatFour = StatFour;
-            this.StatFive = StatFive;
-            this.StatSix = StatSix;
-        }
 
     }
 }
