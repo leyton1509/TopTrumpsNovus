@@ -6,78 +6,45 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DeckID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CardName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageFilePath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatOne)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatTwo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatThree)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatFour)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatFive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StatSix)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeckID)
-            </td>
-            <td>
+<div class= "Game">
+
+    @{
+        int counter = 0;
+
+        foreach (var item in Model)
+        {
+            if (counter == 0 || counter == 1)
+            {
+                   <br />
+        <div class="CardStyle">
+        <div>
+            <p>
                 @Html.DisplayFor(modelItem => item.CardName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageFilePath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatOne)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatTwo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatThree)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatFour)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatFive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatSix)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            </p>
+            <p>
+                @Html.DisplayNameFor(modelItem => item.StatOne): @Html.DisplayFor(modelItem => item.StatOne)
+            </p>
+            <p>
+                @Html.DisplayNameFor(modelItem => item.StatTwo): @Html.DisplayFor(modelItem => item.StatTwo)
+            </p>
+            <p>
+                @Html.DisplayNameFor(modelItem => item.StatThree): @Html.DisplayFor(modelItem => item.StatThree)
+            </p>
+            <p>
+                @Html.DisplayNameFor(modelItem => item.StatFour): @Html.DisplayFor(modelItem => item.StatFour)
+            </p>
+            <p>
+                @Html.DisplayNameFor(modelItem => item.StatFive): @Html.DisplayFor(modelItem => item.StatFive)
+            </p>
+            <p>
+                @Html.DisplayNameFor(modelItem => item.StatSix): @Html.DisplayFor(modelItem => item.StatSix)
+            </p>
+            </div>
+        </div>
+                <br />
+            }
+            counter++;
+        }
+
 }
-    </tbody>
-</table>
+</div>
