@@ -10,7 +10,7 @@
 <div class= "Game">
 
     @{
-        
+
         foreach (var item in Model)
         {
             if ((item.DeckID) == deckID)
@@ -19,6 +19,9 @@
             }
         }
 
+        ColumnNames cns = new ColumnNames();
+
+        string[] columnNames = cns.getColumnNames(deckID);
 
         Random rng = new Random();
         cardList = cardList.OrderBy(a => rng.Next()).ToList();
@@ -45,24 +48,24 @@
                 <br />
                     <div>
                         <p>
-                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
+                         @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
+                        @Html.DisplayNameFor(modelItem => columnNames[0]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
+                        @Html.DisplayNameFor(modelItem => columnNames[1]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
+                        @Html.DisplayNameFor(modelItem => columnNames[2]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
+                        @Html.DisplayNameFor(modelItem => columnNames[3]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
                         <p>
-                            @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
+                        @Html.DisplayNameFor(modelItem => columnNames[4]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
                         </p>
                         <p>
-                            @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
+                        @Html.DisplayNameFor(modelItem => columnNames[5]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
                         </p>
                         </div>
                     </div>
