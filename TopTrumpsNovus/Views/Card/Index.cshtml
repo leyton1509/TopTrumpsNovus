@@ -2,58 +2,60 @@
 
 @{
     ViewData["Title"] = "Index"; 
+    int deckID = 1;
+    int counter = 0;
+    List<Card> cardList = new List<Card>();
 }
 
 <div class= "Game">
 
-    <div class="DeckSelector">
-        <select name="deckSelector" onchange="changeDeckNumber(this)" id="deckSelector">
-            <option value="Basketball Characters" selected>1</option>
-            <option value="Football Characters">2</option>
-            <option value="Marvel">3</option>
-            <option value="Anime Characters">4</option>
-            <option value="Star Wars Characters">5</option>
-        </select>
-    </div>
-
-
-
     @{
-        int counter = 0;
+        
 
         foreach (var item in Model)
         {
-            if (counter == 0 || counter == 1)
+            if ((item.DeckID) == deckID)
             {
-                   <br />
-        <div class="CardStyle">
-        <div>
-            <p>
-                @Html.DisplayFor(modelItem => item.CardName)
-            </p>
-            <p>
-                @Html.DisplayNameFor(modelItem => item.StatOne): @Html.DisplayFor(modelItem => item.StatOne)
-            </p>
-            <p>
-                @Html.DisplayNameFor(modelItem => item.StatTwo): @Html.DisplayFor(modelItem => item.StatTwo)
-            </p>
-            <p>
-                @Html.DisplayNameFor(modelItem => item.StatThree): @Html.DisplayFor(modelItem => item.StatThree)
-            </p>
-            <p>
-                @Html.DisplayNameFor(modelItem => item.StatFour): @Html.DisplayFor(modelItem => item.StatFour)
-            </p>
-            <p>
-                @Html.DisplayNameFor(modelItem => item.StatFive): @Html.DisplayFor(modelItem => item.StatFive)
-            </p>
-            <p>
-                @Html.DisplayNameFor(modelItem => item.StatSix): @Html.DisplayFor(modelItem => item.StatSix)
-            </p>
-            </div>
-        </div>
+                cardList.Add(item);
+
+                <div class="CardStyle">
+                    <br />
+                        <div>
+                            <p>
+                                @Html.DisplayFor(modelItem => item.CardName)
+                            </p>
+                            <p>
+                                @Html.DisplayNameFor(modelItem => item.StatOne): @Html.DisplayFor(modelItem => item.StatOne)
+                            </p>
+                            <p>
+                                @Html.DisplayNameFor(modelItem => item.StatTwo): @Html.DisplayFor(modelItem => item.StatTwo)
+                            </p>
+                            <p>
+                                @Html.DisplayNameFor(modelItem => item.StatThree): @Html.DisplayFor(modelItem => item.StatThree)
+                            </p>
+                            <p>
+                                @Html.DisplayNameFor(modelItem => item.StatFour): @Html.DisplayFor(modelItem => item.StatFour)
+                            </p>
+                            <p>
+                                @Html.DisplayNameFor(modelItem => item.StatFive): @Html.DisplayFor(modelItem => item.StatFive)
+                            </p>
+                            <p>
+                                @Html.DisplayNameFor(modelItem => item.StatSix): @Html.DisplayFor(modelItem => item.StatSix)
+                            </p>
+                            </div>
+                        </div>
                 <br />
             }
             counter++;
+        }
+
+        
+
+    
+
+        foreach (var card in cardList)
+        {
+            Console.WriteLine(card.CardName);
         }
 
 }
