@@ -48,6 +48,13 @@ body {
     margin: 0 auto;
 }
 
+.Cards {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 30px 30px;
+}
 
 .Game {
     display: flex;
