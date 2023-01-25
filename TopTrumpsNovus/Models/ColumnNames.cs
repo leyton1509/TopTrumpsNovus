@@ -3,7 +3,7 @@
     public class ColumnNames
     {
 
-        string[] getColumnNames(int deckID)
+        public string[] getColumnNames(int deckID)
         {
             if (deckID == 1)
             {
@@ -30,13 +30,6 @@
                 return new string[] { };
             }
         }
-
-
-
-        }
-
-
-]
 
     }
 }
