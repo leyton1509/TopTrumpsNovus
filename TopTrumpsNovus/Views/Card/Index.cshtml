@@ -49,18 +49,17 @@
             counter++;
         }
 
-        
+
         Random rng = new Random();
         cardList = cardList.OrderBy(a => rng.Next()).ToList();
 
         List<Card> playersCards = new List<Card>();
         List<Card> aisCards = new List<Card>();
-    
 
-        foreach (var card in cardList)
-        {
-            Console.WriteLine(card.CardName);
-        }
+        int halfOfDeck = (cardList.Count() / 2);
+        Console.WriteLine(halfOfDeck);
+        
+        
 
 }
 </div>
