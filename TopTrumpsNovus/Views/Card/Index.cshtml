@@ -62,9 +62,13 @@
         for (int i = 0; i < halfOfDeck;i++)
         {
             playersCards.Add(cardList.ElementAt(i));
-
         }
 
+        for (int i = halfOfDeck; i < cardList.Count(); i++)
+        {
+            aisCards.Add(cardList.ElementAt(i));
+        }
 
+        
 }
 </div>
