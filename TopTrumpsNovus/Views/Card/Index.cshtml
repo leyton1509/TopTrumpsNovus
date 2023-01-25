@@ -42,6 +42,9 @@
             aisCards.Add(cardList.ElementAt(i));
         }
 
+        String column1 = columnNames[0];
+
+
         <div class="Cards">
 
             <div class="CardStyle">
@@ -51,21 +54,21 @@
                          @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
                         </p>
                         <p>
-                        @Html.DisplayNameFor(modelItem => columnNames[0]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
+                        @columnNames[0] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
                         </p>
                         <p>
-                        @Html.DisplayNameFor(modelItem => columnNames[1]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
+                        @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
                         </p>
                         <p>
-                        @Html.DisplayNameFor(modelItem => columnNames[2]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
+                        @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
                         </p>
                         <p>
-                        @Html.DisplayNameFor(modelItem => columnNames[3]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
+                        @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
                         <p>
-                        @Html.DisplayNameFor(modelItem => columnNames[4]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
+                        @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
                         </p>
                         <p>
-                        @Html.DisplayNameFor(modelItem => columnNames[5]) @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
+                        @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
                         </p>
                         </div>
                     </div>
@@ -79,21 +82,21 @@
                             @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
                         </p>
                         <p>
-                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)
+                        @columnNames[0]   @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatTwo)
+                        @columnNames[1] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatTwo)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatThree)
+                        @columnNames[2] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatThree)
                         </p>
                         <p>
-                        @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFour)
+                        @columnNames[3] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFour)
                         <p>
-                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)
+                         @columnNames[4] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)
                         </p>
                         <p>
-                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)
+                         @columnNames[5]@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)
                         </p>
                     </div>
                 <br />
