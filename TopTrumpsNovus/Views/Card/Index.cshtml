@@ -3,9 +3,7 @@
 @{
     ViewData["Title"] = "Index"; 
     int deckID = 1;
-    int counter = 0;
     List<Card> cardList = new List<Card>();
-
     List<Card> drawnCardsList = new List<Card>();
 }
 
@@ -13,42 +11,12 @@
 
     @{
         
-
         foreach (var item in Model)
         {
             if ((item.DeckID) == deckID)
             {
                 cardList.Add(item);
-
-                <div class="CardStyle">
-                    <br />
-                        <div>
-                            <p>
-                                @Html.DisplayFor(modelItem => item.CardName)
-                            </p>
-                            <p>
-                                @Html.DisplayNameFor(modelItem => item.StatOne): @Html.DisplayFor(modelItem => item.StatOne)
-                            </p>
-                            <p>
-                                @Html.DisplayNameFor(modelItem => item.StatTwo): @Html.DisplayFor(modelItem => item.StatTwo)
-                            </p>
-                            <p>
-                                @Html.DisplayNameFor(modelItem => item.StatThree): @Html.DisplayFor(modelItem => item.StatThree)
-                            </p>
-                            <p>
-                                @Html.DisplayNameFor(modelItem => item.StatFour): @Html.DisplayFor(modelItem => item.StatFour)
-                            </p>
-                            <p>
-                                @Html.DisplayNameFor(modelItem => item.StatFive): @Html.DisplayFor(modelItem => item.StatFive)
-                            </p>
-                            <p>
-                                @Html.DisplayNameFor(modelItem => item.StatSix): @Html.DisplayFor(modelItem => item.StatSix)
-                            </p>
-                            </div>
-                        </div>
-                <br />
             }
-            counter++;
         }
 
 
@@ -70,6 +38,67 @@
         {
             aisCards.Add(cardList.ElementAt(i));
         }
+
+        <div class="Cards">
+
+            <div class="CardStyle">
+                <br />
+                    <div>
+                        <p>
+                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
+                        <p>
+                            @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
+                        </p>
+                        </div>
+                    </div>
+                    <br />
+            <div/>
+
+            <div class="CardStyle">
+                <br />
+                    <div>
+                        <p>
+                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatTwo)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatThree)
+                        </p>
+                        <p>
+                        @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFour)
+                        <p>
+                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)
+                        </p>
+                        <p>
+                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)
+                        </p>
+                    </div>
+                <br />
+            </div>
+        
+          </div>
+
+
 
         
 }
