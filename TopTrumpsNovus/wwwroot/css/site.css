@@ -16,3 +16,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.CardStyle {
+    display: flex;
+    width: 250px;
+    padding: 10px;
+    margin: 10px;
+    margin: 25px 0px 5px 25px;
+    background-color: rgb(23, 19, 45);
+    border: solid 2px #8b1f65;
+    color: white;
+}
+
+.CardStyle img {
+    width: 100%;
+}
+
+.CardStyle .columns {
+    width: 100%;
+}
+
+.CardStyle .columns div {
+    width: 50%;
+}
+.Game {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    justify-content:center;
+    gap:30px 30px;
+}
