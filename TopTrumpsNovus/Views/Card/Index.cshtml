@@ -50,7 +50,10 @@
         }
 
         
+        Random rng = new Random();
+        cardList = cardList.OrderBy(a => rng.Next()).ToList();
 
+        
     
 
         foreach (var card in cardList)
