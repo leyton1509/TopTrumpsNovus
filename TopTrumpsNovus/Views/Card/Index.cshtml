@@ -53,6 +53,7 @@
                         <p>
                          @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
                         </p>
+                        <img src=playersCards.ElementAt(0).ImageFilePath>
                         <p>
                         @columnNames[0] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
                         </p>
@@ -81,6 +82,7 @@
                         <p>
                             @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
                         </p>
+                    <img src=aisCards.ElementAt(0).ImageFilePath>
                         <p>
                         @columnNames[0]   @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)
                         </p>
@@ -96,7 +98,7 @@
                          @columnNames[4] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)
                         </p>
                         <p>
-                         @columnNames[5]@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)
+                         @columnNames[5] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)
                         </p>
                     </div>
                 <br />
