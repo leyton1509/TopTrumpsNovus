@@ -1,12 +1,22 @@
 ﻿@model IEnumerable<TopTrumpsNovus.Models.Card>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index"; 
 }
 
-<h1>Index</h1>
-
 <div class= "Game">
+
+    <div class="DeckSelector">
+        <select name="deckSelector" onchange="changeDeckNumber(this)" id="deckSelector">
+            <option value="Basketball Characters" selected>1</option>
+            <option value="Football Characters">2</option>
+            <option value="Marvel">3</option>
+            <option value="Anime Characters">4</option>
+            <option value="Star Wars Characters">5</option>
+        </select>
+    </div>
+
+
 
     @{
         int counter = 0;
