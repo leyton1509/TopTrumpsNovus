@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<TopTrumpsNovus.Models.Card>
 
 @{
-    ViewData["Title"] = "Index"; 
+    ViewData["Title"] = "Index";
     int deckID = 1;
     List<Card> cardList = new List<Card>();
     List<Card> drawnCardsList = new List<Card>();
 }
 
-<div class= "Game">
+<div class="Game">
 
     @{
         foreach (var item in Model)
@@ -30,7 +30,7 @@
 
         int halfOfDeck = (cardList.Count() / 2);
 
-        for (int i = 0; i < halfOfDeck;i++)
+        for (int i = 0; i < halfOfDeck; i++)
         {
             playersCards.Add(cardList.ElementAt(i));
         }
@@ -124,13 +124,13 @@
                     </div>
                 </div>
             </div>
-        
+
         </div>
 
 
 
-        
-}
+
+    }
 </div>
 
 <script type="text/javascript">
@@ -184,6 +184,6 @@
     }
 
     const updateCards = () => {
-        
+
     }
 </script>
