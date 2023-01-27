@@ -218,22 +218,7 @@
                         </div>
                     </div>
 
-          </div>   
-
-
-
-
-            <div>
-                <p class="outcomeText"></p>
-                <div>
-                    <p class="playerWinCount"></p>
-                    <p class="aiWinCount"></p>
-                </div>
-            </div>
-
-
-
-
+          </div>
     }
 </div>
 
@@ -383,11 +368,11 @@
 
     const displayOutcome = () => {
         if (playerWins > aiWins) {
-            alert("Game Over! Player wins!");
+            alert(`Game Over! Player had ${playerWins} wins!`);
         } else if (aiWins > playerWins) {
-            alert("Game Over! Computer wins!")
+            alert(`Game Over! Computer ${aiWins} wins!`)
         } else {
-            alert("Game Over! It's a tie!");
+            alert(`Game Over! It's a tie! Both sides had ${playerWins} wins.`);
         }
     }
 </script>
