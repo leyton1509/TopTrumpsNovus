@@ -1,65 +1,315 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    background: #4e54c8;
+}
+
+.container {
+    position: absolute;
+    height: 300px;
+    width: 600px;
+    top: 60px;
+    left: calc(50% - 300px);
+    display: flex;
+}
+
+.info-card {
+    position: fixed;
+    height: 300px;
+    width: 600px;
+    top: 180px;
+    left: calc(100% - 94.5%);
+    display: flex;
+}
+
+.info-card2 {
+    position: fixed;
+    height: 300px;
+    width: 600px;
+    top: 180px;
+    left: calc(100% - 20%);
+    display: flex;
+    width: 100%;
 }
 
 
-.CardStyle {
+/*
+.info-card, .info-card2 {
+    float: left;
+    display: inline;
+    width: 49%;
+    left: 50px;
+    justify-content: left;
+}
+    */
+.aicontainer {
+    position: absolute;
+    height: 400px;
+    width: 600px;
+    top: 400px;
+    left: calc(50% - 300px);
     display: flex;
-    width: 250px;
-    padding: 10px;
-    /*margin: 10px;*/
-    /*margin: 25px 0px 5px 25px;*/
-    background-color: rgb(23, 19, 45);
-    border: solid 2px #8b1f65;
+}
+
+.card {
+    display: flex;
+    height: 240px;
+    width: 160px;
+    background-color: #17141d;
+    border-radius: 20px;
+    box-shadow: -1rem 0 3rem #000;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+    perspective: 1000px;
+    border: 5px solid #000;
+    outline: 2px dashed #ffdd00;
+    outline-offset: -10px;
+}
+
+    .card:not(:first-child) {
+        margin-left: -50px;
+    }
+
+    .card:hover {
+        transform: translateY(-20px);
+        transition: 0.4s ease-out;
+    }
+
+.player-card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+}
+
+.ai-card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+}
+
+
+.player-card, .ai-card {
+    display:flex;
+    background-color: transparent;
+    position:relative;
+    transition: 0.4s ease-out;
+    height: 280px;
+    width: 200px;
+    perspective: 1000px;
+
+}
+
+
+
+.player-card-inner, .ai-card-inner {
+    position: relative;
+    width: 100%;
+    height: 150%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+.player-card:hover .player-card-inner {
+    transform: rotateY(180deg);
+}
+
+.ai-card:hover .ai-card-inner {
+    transform: rotateY(180deg);
+}
+
+.player-card-front, .player-card-back, .ai-card-front, .ai-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.player-card-front, .ai-card-front {
+    background-color: #17141d;
+    border: 5px solid #000;
+    outline: 2px solid #ffdd00;
+    outline-offset: -10px;
     color: white;
+    box-shadow: -1rem 0 3rem #000;
+    border: 5px solid #000;
+    border-radius: 20px;
 }
 
-.CardStyle img {
+
+
+.player-card-back, .ai-card-back {
+    background-color: #2980b9;
+    background-color: #17141d;
+    color: white;
+    transform: rotateY(180deg);
+    border: 5px solid #000;
+    outline: 2px solid #ffdd00;
+    outline-offset: -10px;
+    box-shadow: -1rem 0 3rem #000;
+    border: 5px solid #000;
+    border-radius: 20px;
+}
+
+.backimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+    position: center;
+    margin-top: 100px;
+}
+
+
+/*Creating an animated background*/
+
+.shapes {
+    background: #4e54c8;
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
     width: 100%;
+    height: 100vh;
 }
 
-.CardStyle .columns {
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.CardStyle .columns div {
-    width: 50%;
-}
+    .circles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 25s linear infinite;
+        bottom: 0px;
+    }
 
-.DeckSelector {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin: 0 auto;
-}
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+            opacity: 0;
+        }
 
-.Cards {
-    display: flex;
-    flex-flow: wrap;
-    width: 100%;
-    justify-content: center;
-    gap: 30px 30px;
-}
 
-.Game {
-    display: flex;
-    flex-flow: wrap;
-    width: 100%;
-    justify-content: center;
-    gap: 30px 30px;
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            top: 450px;
+            opacity: 0;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+            opacity: 0;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+            opacity: 0;
+        }
+
+
+
+@keyframes animate {
+
+    0% {
+        transform: translateY(-10) rotate(0deg);
+        opacity: 0;
+        border-radius: 0;
+    }
+
+    20% {
+        transform: translateY(-100) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    15% {
+        transform: translateY(-100) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
 }
