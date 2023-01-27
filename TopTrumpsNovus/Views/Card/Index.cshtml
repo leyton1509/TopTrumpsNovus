@@ -10,7 +10,6 @@
 <div class= "Game">
 
     @{
-
         foreach (var item in Model)
         {
             if ((item.DeckID) == deckID)
@@ -30,7 +29,6 @@
         List<Card> aisCards = new List<Card>();
 
         int halfOfDeck = (cardList.Count() / 2);
-        Console.WriteLine(halfOfDeck);
 
         for (int i = 0; i < halfOfDeck;i++)
         {
@@ -45,63 +43,89 @@
         <div class="Cards">
 
             <div class="CardStyle">
-                <br />
-                    <div>
-                        <p>
-                         @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
+                <div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
                         </p>
-                        <img src=playersCards.ElementAt(0).ImageFilePath>
-                        <p>
-                        @columnNames[0] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)
-                        </p>
-                        <p>
-                        @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
-                        </p>
-                        <p>
-                        @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
-                        </p>
-                        <p>
-                        @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
-                        <p>
-                        @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
-                        </p>
-                        <p>
-                        @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
-                        </p>
-                        </div>
                     </div>
-                    <br />
-            <div/>
+                    <img src=playersCards.ElementAt(0).ImageFilePath>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-stat statOne">
+                            @columnNames[0] <span class="statOne-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)</span>
+                        </p>
+                        <button type="button" class="selectStatBtn" onclick="handleStatSelected('statOne')">SELECT</button>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-stat statTwo">
+                            @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-stat statThree">
+                            @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-stat statFour">
+                            @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-stat statFive">
+                            @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-stat statSix">
+                            @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <div class="CardStyle">
-                <br />
-                    <div>
-                        <p>
-                            @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
-                        </p>
-                    <img src=aisCards.ElementAt(0).ImageFilePath>
-                        <p>
-                        @columnNames[0]   @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)
-                        </p>
-                        <p>
-                        @columnNames[1] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatTwo)
-                        </p>
-                        <p>
-                        @columnNames[2] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatThree)
-                        </p>
-                        <p>
-                        @columnNames[3] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFour)
-                        <p>
-                         @columnNames[4] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)
-                        </p>
-                        <p>
-                         @columnNames[5] @Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)
+                <div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @Html.DisplayFor(modelItem => playersCards.ElementAt(1).CardName)
                         </p>
                     </div>
-                <br />
+                    <img src=playersCards.ElementAt(0).ImageFilePath>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @columnNames[0] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatOne)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatTwo)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatThree)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatFour)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatFive)
+                        </p>
+                    </div>
+                    <div class="cardInfo-container">
+                        <p class="cardInfo-title">
+                            @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatSix)
+                        </p>
+                    </div>
+                </div>
             </div>
         
-          </div>
+        </div>
 
 
 

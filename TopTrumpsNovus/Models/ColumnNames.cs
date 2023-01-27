@@ -7,7 +7,7 @@
         {
             if (deckID == 1)
             {
-                return new string[] { "Physical", "Speed", "Passing", "Defence", "Stamina", "Shot" };
+                return new string[] { "Height", "Shooting", "Dribbling", "Playmaking", "Defence", "Athleticism" };
             }
             else if (deckID == 2)
             {
