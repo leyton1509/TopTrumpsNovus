@@ -87,38 +87,38 @@
             <div class="CardStyle">
                 <div>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-title">
                             @Html.DisplayFor(modelItem => playersCards.ElementAt(1).CardName)
                         </p>
                     </div>
                     <img src=playersCards.ElementAt(0).ImageFilePath>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-statOne">
                             @columnNames[0] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatOne)
                         </p>
                     </div>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-statTwo">
                             @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatTwo)
                         </p>
                     </div>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-statThree">
                             @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatThree)
                         </p>
                     </div>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-statFour">
                             @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatFour)
                         </p>
                     </div>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-statFive">
                             @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatFive)
                         </p>
                     </div>
                     <div>
-                        <p class="cardInfo-title">
+                        <p class="aiCard-statSix">
                             @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatSix)
                         </p>
                     </div>
@@ -135,11 +135,22 @@
 
 <script type="text/javascript">
     const handleStatSelected = (statRef) => {
-        let elementValue = document.querySelector(`.${statRef}`).innerText;
-        let statHeader = elementValue.split` `[0];
-        let statValue = elementValue.split` `[1];
+        const elementValue = document.querySelector(`.${statRef}`).innerText;
+        const statHeader = elementValue.split` `[0];
+        const statValue = elementValue.split` `[1];
 
         console.log(`statHeader: ${statHeader}`);
         console.log(`statValue: ${statValue}`);
+
+        getAiStat(statRef);
+    }
+
+    const getAiStat = (statRef) => {
+        const elementValue = document.querySelector(`.aiCard-${statRef}`).innerText;
+        const statHeader = elementValue.split` `[0];
+        const statValue = elementValue.split` `[1];
+
+        console.log(`ai-statHeader: ${statHeader}`);
+        console.log(`ai-statValue: ${statValue}`);
     }
 </script>
