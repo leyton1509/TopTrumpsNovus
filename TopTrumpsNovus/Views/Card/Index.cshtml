@@ -134,23 +134,56 @@
 </div>
 
 <script type="text/javascript">
+    const cardsArr = @Html.Raw(Json.Serialize(playersCards));
+
     const handleStatSelected = (statRef) => {
         const elementValue = document.querySelector(`.${statRef}`).innerText;
         const statHeader = elementValue.split` `[0];
-        const statValue = elementValue.split` `[1];
+        const playerStatValue = elementValue.split` `[1];
 
         console.log(`statHeader: ${statHeader}`);
-        console.log(`statValue: ${statValue}`);
+        console.log(`player-statValue: ${playerStatValue}`);
 
-        getAiStat(statRef);
+        getAiStat(statRef, playerStatValue);
     }
 
-    const getAiStat = (statRef) => {
+    const getAiStat = (statRef, playerStatValue) => {
         const elementValue = document.querySelector(`.aiCard-${statRef}`).innerText;
-        const statHeader = elementValue.split` `[0];
-        const statValue = elementValue.split` `[1];
+        const aiStatValue = elementValue.split` `[1];
 
-        console.log(`ai-statHeader: ${statHeader}`);
-        console.log(`ai-statValue: ${statValue}`);
+        console.log(`ai-statValue: ${aiStatValue}`);
+
+        compareStats(playerStatValue, aiStatValue);
+
+        return aiStatValue;
+    }
+
+    let roundCount = 0;
+
+    const compareStats = (playerStatValue, aiStatValue) => {
+        let notification;
+        const title = `Round ${roundCount}`;
+        const delay = 2000;
+
+        roundCount++;
+
+        if (playerStatValue > aiStatValue) {
+            alert(`Player wins Round ${roundCount}!`)
+        } else if (aiStatValue > playerStatValue) {
+            alert(`Computer wins Round ${roundCount}!`)
+        } else {
+            alert(`Round ${roundCount}: it's a tie!`)
+        }
+
+        const indexToRemove = cardsArr.indexOf(cardsArr[0]);
+        console.log(cardsArr.indexOf(cardsArr[0]));
+        cardsArr.splice(indexToRemove, 1);
+
+        console.log(cardsArr);
+        updateCards();
+    }
+
+    const updateCards = () => {
+        
     }
 </script>
