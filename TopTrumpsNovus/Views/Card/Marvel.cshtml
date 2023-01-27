@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    int deckID = 1;
+    int deckID = 3;
     List<Card> cardList = new List<Card>();
     List<Card> drawnCardsList = new List<Card>();
 }
@@ -101,135 +101,135 @@
         }
 
 
-         <div class="info-card">
-                <div class="player-card">
-                    <div class="player-card-inner">
+             <div class="info-card">
+                    <div class="player-card">
+                        <div class="player-card-inner">
 
-                        <div class="player-card-front">
-                        <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-                        </div>
-
-                        <div class="player-card-back">
-                            <br />
-                                <div>
-
-                            <p class="playerCard-title">
-                                @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
-                            </p>
-                        </div>
-                        <img src=playersCards.ElementAt(0).ImageFilePath>
-                        <div>
-                            <p class="statOne">
-                                @columnNames[0] <span class="playerStatOne-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)</span>
-                                <button type="button" class="selectStatBtn" onclick="handleStatSelected('statOne')">SELECT</button>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="statTwo">
-                                @columnNames[1] <span class="playerStatTwo-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)</span>
-                                <button type="button" class="selectStatBtn" onclick="handleStatSelected('statTwo')">SELECT</button>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="statThree">
-                                @columnNames[2] <span class="playerStatThree-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)</span>
-                                <button type="button" class="selectStatBtn" onclick="handleStatSelected('statThree')">SELECT</button>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="statFour">
-                                @columnNames[3] <span class="playerStatFour-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)</span>
-                                <button type="button" class="selectStatBtn" onclick="handleStatSelected('statFour')">SELECT</button>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="statFive">
-                                @columnNames[4] <span class="playerStatFive-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)</span>
-                                <button type="button" class="selectStatBtn" onclick="handleStatSelected('statFive')">SELECT</button>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="statSix">
-                                @columnNames[5] <span class="playerStatSix-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)</span>
-                                <button type="button" class="selectStatBtn" onclick="handleStatSelected('statSix')">SELECT</button>
-                            </p>
-                        </div>
-
-                                   
-
-                              
-                            <br />
-                        </div>
-                       
-                    </div >
-
-                </div>
-            
-
-                <div class="info-card2">
-                    <div class="ai-card">
-                        <div class="ai-card-inner">
-                            <div class="ai-card-front">
+                            <div class="player-card-front">
                             <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
                             </div>
 
-                            <div class="ai-card-back">
+                            <div class="player-card-back">
                                 <br />
-                            <div>
-                                <p class="aiCard-title">
-                                    @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
+                                    <div>
+
+                                <p class="playerCard-title">
+                                @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
                                 </p>
                             </div>
-                            <img src=aisCards.ElementAt(0).ImageFilePath>
+                            <img src=playersCards.ElementAt(0).ImageFilePath>
                             <div>
-                                <p class="aiCard-statOne">
-                                    @columnNames[0] <span class="aiStatOne-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)</span>
-                                </p>
-                            </div>
-                            <div>
-                                <p class="aiCard-statTwo">
-                                    @columnNames[1] <span class="aiStatTwo-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatTwo)</span>
+                                <p class="statOne">
+                                @columnNames[0] <span class="playerStatOne-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)</span>
+                                    <button type="button" class="selectStatBtn" onclick="handleStatSelected('statOne')">SELECT</button>
                                 </p>
                             </div>
                             <div>
-                                <p class="aiCard-statThree">
-                                    @columnNames[2] <span class="aiStatThree-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatThree)</span>
+                                <p class="statTwo">
+                                @columnNames[1] <span class="playerStatTwo-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)</span>
+                                    <button type="button" class="selectStatBtn" onclick="handleStatSelected('statTwo')">SELECT</button>
                                 </p>
                             </div>
                             <div>
-                                <p class="aiCard-statFour">
-                                    @columnNames[3] <span class="aiStatFour-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFour)</span>
+                                <p class="statThree">
+                                @columnNames[2] <span class="playerStatThree-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)</span>
+                                    <button type="button" class="selectStatBtn" onclick="handleStatSelected('statThree')">SELECT</button>
                                 </p>
                             </div>
                             <div>
-                                <p class="aiCard-statFive">
-                                    @columnNames[4] <span class="aiStatFive-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)</span>
+                                <p class="statFour">
+                                @columnNames[3] <span class="playerStatFour-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)</span>
+                                    <button type="button" class="selectStatBtn" onclick="handleStatSelected('statFour')">SELECT</button>
                                 </p>
                             </div>
                             <div>
-                                <p class="aiCard-statSix">
-                                    @columnNames[5] <span class="aiStatSix-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)</span>
+                                <p class="statFive">
+                                @columnNames[4] <span class="playerStatFive-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)</span>
+                                    <button type="button" class="selectStatBtn" onclick="handleStatSelected('statFive')">SELECT</button>
                                 </p>
                             </div>
+                            <div>
+                                <p class="statSix">
+                                @columnNames[5] <span class="playerStatSix-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)</span>
+                                    <button type="button" class="selectStatBtn" onclick="handleStatSelected('statSix')">SELECT</button>
+                                </p>
+                            </div>
+
+
+
+
                                 <br />
                             </div>
 
+                        </div >
+
+                    </div>
+
+
+                    <div class="info-card2">
+                        <div class="ai-card">
+                            <div class="ai-card-inner">
+                                <div class="ai-card-front">
+                                <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
+                                </div>
+
+                                <div class="ai-card-back">
+                                    <br />
+                                <div>
+                                    <p class="aiCard-title">
+                                    @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
+                                    </p>
+                                </div>
+                                <img src=aisCards.ElementAt(0).ImageFilePath>
+                                <div>
+                                    <p class="aiCard-statOne">
+                                    @columnNames[0] <span class="aiStatOne-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatOne)</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="aiCard-statTwo">
+                                    @columnNames[1] <span class="aiStatTwo-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatTwo)</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="aiCard-statThree">
+                                    @columnNames[2] <span class="aiStatThree-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatThree)</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="aiCard-statFour">
+                                    @columnNames[3] <span class="aiStatFour-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFour)</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="aiCard-statFive">
+                                    @columnNames[4] <span class="aiStatFive-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatFive)</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="aiCard-statSix">
+                                    @columnNames[5] <span class="aiStatSix-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)</span>
+                                    </p>
+                                </div>
+                                    <br />
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
-      </div>   
-
+          </div>   
 
 
- 
-        <div>
-            <p class="outcomeText"></p>
+
+
             <div>
-                <p class="playerWinCount"></p>
-                <p class="aiWinCount"></p>
+                <p class="outcomeText"></p>
+                <div>
+                    <p class="playerWinCount"></p>
+                    <p class="aiWinCount"></p>
+                </div>
             </div>
-        </div>
 
 
 
@@ -258,7 +258,7 @@
     const playAiTurn = () => {
         const random = Math.floor(Math.random() * 6) + 1;
         let stat;
-        
+
         switch (random) {
             case(1):
                 stat = "One"

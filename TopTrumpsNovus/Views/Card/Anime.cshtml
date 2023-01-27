@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    int deckID = 1;
+    int deckID = 4;
     List<Card> cardList = new List<Card>();
     List<Card> drawnCardsList = new List<Card>();
 }
@@ -26,43 +26,43 @@
 
 <div class="container">
 
-        <div class="card">
-            <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-        </div>
-
-        <div class="card">
-            <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-
-        </div>
-
-        <div class="card">
+    <div class="card">
         <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-        </div>
+    </div>
+
+    <div class="card">
+        <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
+
+    </div>
+
+    <div class="card">
+        <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
+    </div>
 
 
-        <div class="card">
+    <div class="card">
         <img src="~/Images/Toptrumps-logo.png" class="backimage" />
-        </div>
- </div>
+    </div>
+</div>
 
 
-    <div class="aicontainer">
+<div class="aicontainer">
 
-        <div class="card">
+    <div class="card">
         <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-        </div>
+    </div>
 
-        <div class="card">
-                <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-
-        </div>
-
-        <div class="card">
+    <div class="card">
         <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-        </div>
+
+    </div>
+
+    <div class="card">
+        <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
+    </div>
 
 
-        <div class="card">
+    <div class="card">
         <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
     </div>
 </div>
@@ -101,17 +101,17 @@
         }
 
 
-         <div class="info-card">
-                <div class="player-card">
-                    <div class="player-card-inner">
+        <div class="info-card">
+            <div class="player-card">
+                <div class="player-card-inner">
 
-                        <div class="player-card-front">
+                    <div class="player-card-front">
                         <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-                        </div>
+                    </div>
 
-                        <div class="player-card-back">
-                            <br />
-                                <div>
+                    <div class="player-card-back">
+                        <br />
+                        <div>
 
                             <p class="playerCard-title">
                                 @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
@@ -155,26 +155,26 @@
                             </p>
                         </div>
 
-                                   
 
-                              
-                            <br />
-                        </div>
-                       
-                    </div >
+
+
+                        <br />
+                    </div>
 
                 </div>
-            
 
-                <div class="info-card2">
-                    <div class="ai-card">
-                        <div class="ai-card-inner">
-                            <div class="ai-card-front">
+            </div>
+
+
+            <div class="info-card2">
+                <div class="ai-card">
+                    <div class="ai-card-inner">
+                        <div class="ai-card-front">
                             <img src="~/Images/Toptrumps-logo.png" alt="Avatar" class="backimage" />
-                            </div>
+                        </div>
 
-                            <div class="ai-card-back">
-                                <br />
+                        <div class="ai-card-back">
+                            <br />
                             <div>
                                 <p class="aiCard-title">
                                     @Html.DisplayFor(modelItem => aisCards.ElementAt(0).CardName)
@@ -211,18 +211,18 @@
                                     @columnNames[5] <span class="aiStatSix-value">@Html.DisplayFor(modelItem => aisCards.ElementAt(0).StatSix)</span>
                                 </p>
                             </div>
-                                <br />
-                            </div>
-
+                            <br />
                         </div>
+
                     </div>
                 </div>
+            </div>
 
-      </div>   
+        </div>
 
 
 
- 
+
         <div>
             <p class="outcomeText"></p>
             <div>
@@ -258,24 +258,24 @@
     const playAiTurn = () => {
         const random = Math.floor(Math.random() * 6) + 1;
         let stat;
-        
+
         switch (random) {
-            case(1):
+            case (1):
                 stat = "One"
                 break;
-            case(2):
+            case (2):
                 stat = "Two"
                 break;
-            case(3):
+            case (3):
                 stat = "Three"
                 break;
-            case(4):
+            case (4):
                 stat = "Four"
                 break;
-            case(5):
+            case (5):
                 stat = "Five"
                 break;
-            case(6):
+            case (6):
                 stat = "Six"
                 break;
             default:
@@ -291,7 +291,7 @@
     }
 
     const getPlayerStat = (statNum) => {
-        const playerStatValue =  document.querySelector(`.playerStat${statNum}-value`).innerText;
+        const playerStatValue = document.querySelector(`.playerStat${statNum}-value`).innerText;
 
         return playerStatValue;
     }
