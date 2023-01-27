@@ -44,40 +44,40 @@
 
             <div class="CardStyle">
                 <div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @Html.DisplayFor(modelItem => playersCards.ElementAt(0).CardName)
                         </p>
                     </div>
                     <img src=playersCards.ElementAt(0).ImageFilePath>
-                    <div class="cardInfo-container">
-                        <p class="cardInfo-stat statOne">
+                    <div>
+                        <p class="statOne">
                             @columnNames[0] <span class="statOne-value">@Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatOne)</span>
+                            <button type="button" class="selectStatBtn" onclick="handleStatSelected('statOne')">SELECT</button>
                         </p>
-                        <button type="button" class="selectStatBtn" onclick="handleStatSelected('statOne')">SELECT</button>
                     </div>
-                    <div class="cardInfo-container">
-                        <p class="cardInfo-stat statTwo">
+                    <div>
+                        <p class="statTwo">
                             @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatTwo)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
-                        <p class="cardInfo-stat statThree">
+                    <div>
+                        <p class="statThree">
                             @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatThree)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
-                        <p class="cardInfo-stat statFour">
+                    <div>
+                        <p class="statFour">
                             @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFour)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
-                        <p class="cardInfo-stat statFive">
+                    <div>
+                        <p class="statFive">
                             @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatFive)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
-                        <p class="cardInfo-stat statSix">
+                    <div>
+                        <p class="statSix">
                             @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(0).StatSix)
                         </p>
                     </div>
@@ -86,38 +86,38 @@
 
             <div class="CardStyle">
                 <div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @Html.DisplayFor(modelItem => playersCards.ElementAt(1).CardName)
                         </p>
                     </div>
                     <img src=playersCards.ElementAt(0).ImageFilePath>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @columnNames[0] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatOne)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @columnNames[1] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatTwo)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @columnNames[2] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatThree)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @columnNames[3] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatFour)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @columnNames[4] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatFive)
                         </p>
                     </div>
-                    <div class="cardInfo-container">
+                    <div>
                         <p class="cardInfo-title">
                             @columnNames[5] @Html.DisplayFor(modelItem => playersCards.ElementAt(1).StatSix)
                         </p>
@@ -132,3 +132,14 @@
         
 }
 </div>
+
+<script type="text/javascript">
+    const handleStatSelected = (statRef) => {
+        let elementValue = document.querySelector(`.${statRef}`).innerText;
+        let statHeader = elementValue.split` `[0];
+        let statValue = elementValue.split` `[1];
+
+        console.log(`statHeader: ${statHeader}`);
+        console.log(`statValue: ${statValue}`);
+    }
+</script>
