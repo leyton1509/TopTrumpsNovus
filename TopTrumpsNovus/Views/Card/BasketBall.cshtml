@@ -236,7 +236,6 @@
         let aiStatValue = getAiStat(statRef, playerStatValue);
         compareStats(playerStatValue, aiStatValue);
 
-        document.querySelector(".outcomeText").innerText = "Computer's turn";
         setTimeout(playAiTurn, 1500);
     }
 
@@ -271,7 +270,6 @@
         let aiStat = parseInt(document.querySelector(`.aiStat${stat}-value`).innerText);
         let playerStat = parseInt(getPlayerStat(stat));
 
-        document.querySelector(".outcomeText").innerText = "Player's turn";
         compareStats(playerStat, aiStat);
     }
 
@@ -300,13 +298,11 @@
         if (playerStatValue > aiStatValue) {
             alert(`Player wins Round ${roundCount}!`);
             playerWins++;
-            document.querySelector(".playerWinCount").innerText = `Player Wins: ${playerWins}`;
             updatePlayerCard();
 
         } else if (aiStatValue > playerStatValue) {
             alert(`Computer wins Round ${roundCount}!`);
             aiWins++;
-            document.querySelector(".aiWinCount").innerText = `Computer Wins: ${aiWins}`;
             updateAiCard();
 
         } else {
