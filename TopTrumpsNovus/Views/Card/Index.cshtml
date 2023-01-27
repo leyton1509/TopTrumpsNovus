@@ -131,6 +131,13 @@
             </div>
 
         </div>
+        <div>
+            <p class="outcomeText"></p>
+            <div>
+                <p class="playerWinCount"></p>
+                <p class="aiWinCount"></p>
+            </div>
+        </div>
 
 
 
@@ -149,21 +156,64 @@
         const statHeader = elementValue.split` `[0];
         const playerStatValue = elementValue.split` `[1];
 
-        getAiStat(statRef, playerStatValue);
+        let aiStatValue = getAiStat(statRef, playerStatValue);
+        compareStats(playerStatValue, aiStatValue);
+
+        document.querySelector(".outcomeText").innerText = "Computer's turn";
+        setTimeout(playAiTurn, 3000);
+    }
+
+    const playAiTurn = () => {
+        const random = Math.floor(Math.random() * 6) + 1;
+        let stat;
+        
+        switch (random) {
+            case(1):
+                stat = "One"
+                break;
+            case(2):
+                stat = "Two"
+                break;
+            case(3):
+                stat = "Three"
+                break;
+            case(4):
+                stat = "Four"
+                break;
+            case(5):
+                stat = "Five"
+                break;
+            case(6):
+                stat = "Six"
+                break;
+            default:
+                stat = "One";
+                break;
+        }
+
+        let aiStat = parseInt(document.querySelector(`.aiStat${stat}-value`).innerText);
+        let playerStat = parseInt(getPlayerStat(stat));
+
+        document.querySelector(".outcomeText").innerText = "Player's turn";
+        compareStats(playerStat, aiStat);
+    }
+
+    const getPlayerStat = (statNum) => {
+        const playerStatValue =  document.querySelector(`.playerStat${statNum}-value`).innerText;
+
+        return playerStatValue;
     }
 
     const getAiStat = (statRef, playerStatValue) => {
         const elementValue = document.querySelector(`.aiCard-${statRef}`).innerText;
         const aiStatValue = elementValue.split` `[1];
 
-        compareStats(playerStatValue, aiStatValue);
-
         return aiStatValue;
     }
 
     let roundCount = 0;
     let playerWins = 0;
-    let aiWins =0;
+    let aiWins = 0;
 
     const compareStats = (playerStatValue, aiStatValue) => {
         const title = `Round ${roundCount}`;
@@ -173,11 +223,13 @@
         if (playerStatValue > aiStatValue) {
             alert(`Player wins Round ${roundCount}!`);
             playerWins++;
+            document.querySelector(".playerWinCount").innerText = `Player Wins: ${playerWins}`;
             updatePlayerCard();
 
         } else if (aiStatValue > playerStatValue) {
             alert(`Computer wins Round ${roundCount}!`);
             aiWins++;
+            document.querySelector(".aiWinCount").innerText = `Computer Wins: ${aiWins}`;
             updateAiCard();
 
         } else {
