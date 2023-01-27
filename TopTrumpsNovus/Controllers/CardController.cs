@@ -14,6 +14,32 @@ namespace TopTrumpsNovus.Controllers
     {
         private readonly CardDBContext _context;
 
+
+        public async Task<IActionResult> StarWars()
+        {
+            return View(await _context.Card.ToListAsync());
+        }
+
+        public async Task<IActionResult> Anime()
+        {
+            return View(await _context.Card.ToListAsync());
+        }
+
+        public async Task<IActionResult> BasketBall()
+        {
+            return View(await _context.Card.ToListAsync());
+        } 
+
+        public async Task<IActionResult> Football()
+        {
+            return View(await _context.Card.ToListAsync());
+        }
+
+        public async Task<IActionResult> Marvel()
+        {
+            return View(await _context.Card.ToListAsync());
+        }
+
         public CardController(CardDBContext context)
         {
             _context = context;
